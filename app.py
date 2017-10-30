@@ -1,4 +1,3 @@
-#! /Users/Cai/.virtualenvs/ENV/bin/python
 #encoding:utf-8
 import pyaudio
 import wave
@@ -10,7 +9,6 @@ import os
 import time
 import re
 import auto_record
-#import vlc
 from urllib import quote
 from config import *
 reload(sys)
@@ -135,15 +133,6 @@ def AskTuling(tuling_api, tuling_key, content):
     reply_text = re.sub("<br>", " ", reply_text)
     print "回答：%s" % reply_text
     return reply_text
-
-def play_mp3(filename):
-    p = vlc.MediaPlayer(filename)
-    p.play()
-    while True:
-        time.sleep(1)
-        if p.is_playing() == 0:
-            break
-
 
 
 if __name__ == '__main__':
